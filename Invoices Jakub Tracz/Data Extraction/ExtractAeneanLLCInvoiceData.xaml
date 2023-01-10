@@ -1,0 +1,415 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DataExtraction" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:maes="clr-namespace:Microsoft.Activities.Extensions.Statements;assembly=Microsoft.Activities.Extensions" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="invoiceData" Type="OutArgument(scg:Dictionary(x:Object, x:Object))" />
+    <x:Property Name="logTable" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>584.8,3434.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="72">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>Microsoft.Activities.Extensions</x:String>
+      <x:String>Microsoft.Activities.Extensions.Statements</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.Activities.Extensions</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DataExtraction" sap:VirtualizedContainerService.HintSize="595.2,3369.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:Window" Name="readerWindow" />
+      <Variable x:TypeArguments="scg:Dictionary(x:Object, x:Object)" Name="invoiceDictionaryData">
+        <Variable.Default>
+          <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">new Dictionary&lt;object,object&gt;()</mca:CSharpValue>
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log" sap:VirtualizedContainerService.HintSize="532.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Logging\\CollectLogMessage.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="message">
+          <Literal x:TypeArguments="x:String">Extracting invoice data for Aenean LLC...</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="loggerTable">
+          <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">logTable</mca:CSharpValue>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:WindowScope SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'acrord32.exe invoicePDF...'" sap:VirtualizedContainerService.HintSize="532.8,3104" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="8c1503cbdb29cafb2b807559d5e42220" Selector="&lt;wnd app='acrord32.exe' cls='AcrobatSDIWindow' title='*.pdf - Adobe Acrobat Reader (32-bit)' /&gt;">
+      <ui:WindowScope.ApplicationWindow>
+        <OutArgument x:TypeArguments="ui:Window">
+          <mca:CSharpReference x:TypeArguments="ui:Window" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">readerWindow</mca:CSharpReference>
+        </OutArgument>
+      </ui:WindowScope.ApplicationWindow>
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="499.2,2956.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="companyName" />
+              <Variable x:TypeArguments="x:String" Name="invoiceNumber" />
+              <Variable x:TypeArguments="x:String" Name="invoiceTotalAmount" />
+              <Variable x:TypeArguments="x:String" Name="invoiceDate" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,380" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <TryCatch.Finally>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2">
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">invoiceDate</mca:CSharpValue>
+                  </InArgument>
+                </WriteLine>
+              </TryCatch.Finally>
+              <TryCatch.Try>
+                <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="333.6,172" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="GoogleOCR_2">
+                        <ui:GoogleOCR.Image>
+                          <InArgument x:TypeArguments="sd1:Image">
+                            <mca:CSharpValue x:TypeArguments="sd1:Image" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">Image</mca:CSharpValue>
+                          </InArgument>
+                        </ui:GoogleOCR.Image>
+                      </ui:GoogleOCR>
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target Element="{x:Null}" Id="43cfe543-9d33-4cff-af07-2dbfd8c64f9d" InformativeScreenshot="a13b6a7e492966aa5beddfaa8b3b0b26" Selector="&lt;wnd aaname='Panel dokumentu' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Ostrzeżenie: Pusty dokument' cls='AVL_AVView' title='AVPageView' /&gt;">
+                      <ui:Target.ClippingRegion>
+                        <ui:Region Rectangle="1337, 186, 181, 52" />
+                      </ui:Target.ClippingRegion>
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetOCRText.Target>
+                  <ui:GetOCRText.Text>
+                    <OutArgument x:TypeArguments="x:String">
+                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">invoiceDate</mca:CSharpReference>
+                    </OutArgument>
+                  </ui:GetOCRText.Text>
+                </ui:GetOCRText>
+              </TryCatch.Try>
+            </TryCatch>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,380" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+              <TryCatch.Finally>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_3">
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">invoiceNumber</mca:CSharpValue>
+                  </InArgument>
+                </WriteLine>
+              </TryCatch.Finally>
+              <TryCatch.Try>
+                <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="333.6,172" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="GoogleOCR_3">
+                        <ui:GoogleOCR.Image>
+                          <InArgument x:TypeArguments="sd1:Image">
+                            <mca:CSharpValue x:TypeArguments="sd1:Image" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">Image</mca:CSharpValue>
+                          </InArgument>
+                        </ui:GoogleOCR.Image>
+                      </ui:GoogleOCR>
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target Element="{x:Null}" Id="43cfe543-9d33-4cff-af07-2dbfd8c64f9d" InformativeScreenshot="6606836391b9255914b3308b743484a9" Selector="&lt;wnd aaname='Panel dokumentu' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Ostrzeżenie: Pusty dokument' cls='AVL_AVView' title='AVPageView' /&gt;">
+                      <ui:Target.ClippingRegion>
+                        <ui:Region Rectangle="1282, 232, 229, 47" />
+                      </ui:Target.ClippingRegion>
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetOCRText.Target>
+                  <ui:GetOCRText.Text>
+                    <OutArgument x:TypeArguments="x:String">
+                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">invoiceNumber</mca:CSharpReference>
+                    </OutArgument>
+                  </ui:GetOCRText.Text>
+                </ui:GetOCRText>
+              </TryCatch.Try>
+            </TryCatch>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="436.8,154.4" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="pgdn" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39c822a3-7f7f-4227-8ea2-4159542c415f" InformativeScreenshot="337a6a67eeeb409367d09010ee17b55e" Selector="&lt;wnd aaname='Panel dokumentu' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Ostrzeżenie: Pusty dokument' cls='AVL_AVView' title='AVPageView' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="436.8,380" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+              <TryCatch.Finally>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="229.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_4">
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">invoiceTotalAmount</mca:CSharpValue>
+                  </InArgument>
+                </WriteLine>
+              </TryCatch.Finally>
+              <TryCatch.Try>
+                <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'AVL_AVView'" sap:VirtualizedContainerService.HintSize="333.6,172" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                  <ui:GetOCRText.OCREngine>
+                    <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                      <ActivityFunc.Argument>
+                        <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+                      </ActivityFunc.Argument>
+                      <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,24.8" sap2010:WorkflowViewState.IdRef="GoogleOCR_4">
+                        <ui:GoogleOCR.Image>
+                          <InArgument x:TypeArguments="sd1:Image">
+                            <mca:CSharpValue x:TypeArguments="sd1:Image" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">Image</mca:CSharpValue>
+                          </InArgument>
+                        </ui:GoogleOCR.Image>
+                      </ui:GoogleOCR>
+                    </ActivityFunc>
+                  </ui:GetOCRText.OCREngine>
+                  <ui:GetOCRText.Target>
+                    <ui:Target Element="{x:Null}" Id="43cfe543-9d33-4cff-af07-2dbfd8c64f9d" InformativeScreenshot="5487cbbebbbc01ce5347a1b879c9f743" Selector="&lt;wnd aaname='Panel dokumentu' cls='AVL_AVView' title='AVScrolledPageView' /&gt;&lt;wnd aaname='Ostrzeżenie: Pusty dokument' cls='AVL_AVView' title='AVPageView' /&gt;">
+                      <ui:Target.ClippingRegion>
+                        <ui:Region Rectangle="1302, 304, 133, 36" />
+                      </ui:Target.ClippingRegion>
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetOCRText.Target>
+                  <ui:GetOCRText.Text>
+                    <OutArgument x:TypeArguments="x:String">
+                      <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">invoiceTotalAmount</mca:CSharpReference>
+                    </OutArgument>
+                  </ui:GetOCRText.Text>
+                </ui:GetOCRText>
+              </TryCatch.Try>
+            </TryCatch>
+            <maes:AddToDictionary x:TypeArguments="x:Object, x:Object" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="436.8,135.2" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_1">
+              <maes:AddToDictionary.Dictionary>
+                <InArgument x:TypeArguments="scg:IDictionary(x:Object, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:IDictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">invoiceDictionaryData</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Dictionary>
+              <maes:AddToDictionary.Key>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">"companyName"</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Key>
+              <maes:AddToDictionary.Value>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">"Aenean LLC"</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Value>
+            </maes:AddToDictionary>
+            <maes:AddToDictionary x:TypeArguments="x:Object, x:Object" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="436.8,135.2" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_2">
+              <maes:AddToDictionary.Dictionary>
+                <InArgument x:TypeArguments="scg:IDictionary(x:Object, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:IDictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">invoiceDictionaryData</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Dictionary>
+              <maes:AddToDictionary.Key>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"invoiceDate"</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Key>
+              <maes:AddToDictionary.Value>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">invoiceDate</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Value>
+            </maes:AddToDictionary>
+            <maes:AddToDictionary x:TypeArguments="x:Object, x:Object" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="436.8,135.2" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_3">
+              <maes:AddToDictionary.Dictionary>
+                <InArgument x:TypeArguments="scg:IDictionary(x:Object, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:IDictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">invoiceDictionaryData</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Dictionary>
+              <maes:AddToDictionary.Key>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"invoiceNumber"</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Key>
+              <maes:AddToDictionary.Value>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">invoiceNumber</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Value>
+            </maes:AddToDictionary>
+            <maes:AddToDictionary x:TypeArguments="x:Object, x:Object" DisplayName="Add to dictionary" sap:VirtualizedContainerService.HintSize="436.8,135.2" sap2010:WorkflowViewState.IdRef="AddToDictionary`2_4">
+              <maes:AddToDictionary.Dictionary>
+                <InArgument x:TypeArguments="scg:IDictionary(x:Object, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:IDictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">invoiceDictionaryData</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Dictionary>
+              <maes:AddToDictionary.Key>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">"invoiceTotalAmount"</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Key>
+              <maes:AddToDictionary.Value>
+                <InArgument x:TypeArguments="x:Object">
+                  <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">invoiceTotalAmount</mca:CSharpValue>
+                </InArgument>
+              </maes:AddToDictionary.Value>
+            </maes:AddToDictionary>
+            <Assign sap:VirtualizedContainerService.HintSize="436.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:Object, x:Object)">
+                  <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">invoiceData</mca:CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:Object, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:Object, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">invoiceDictionaryData</mca:CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Logging\\CollectLogMessage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="message">
+                  <Literal x:TypeArguments="x:String">Invoice data for Aenean LLC extracted</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="loggerTable">
+                  <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">logTable</mca:CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Logging\\CollectLogMessage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="message">
+                  <Literal x:TypeArguments="x:String">Closing Adobe Reader...</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="loggerTable">
+                  <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">logTable</mca:CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:CloseApplication DisplayName="Close Application 'acrord32.exe invoice2.p...'" sap:VirtualizedContainerService.HintSize="436.8,107.2" sap2010:WorkflowViewState.IdRef="CloseApplication_1">
+              <ui:CloseApplication.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="c2fab62b-356e-4bd0-b0ab-8e29d8ec2955" InformativeScreenshot="9d0423391a90af8bccaed204acd9eca4">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:CloseApplication.Target>
+            </ui:CloseApplication>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Log" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Logging\\CollectLogMessage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="message">
+                  <Literal x:TypeArguments="x:String">Adobe Reader closed successfully</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="loggerTable">
+                  <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">logTable</mca:CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+  </Sequence>
+</Activity>
